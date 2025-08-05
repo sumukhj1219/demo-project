@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CameraIcon, QrCodeIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { QRCodeSVG } from "qrcode.react"
 
 const TicketCard = ({
   status,
@@ -66,6 +68,13 @@ const TicketCard = ({
 }
 
 const Dashboard = () => {
+   const [showQR, setShowQR] = useState(false)
+  const [currentURL, setCurrentURL] = useState("")
+
+  const handleGenerateQR = () => {
+    setCurrentURL(window.location.href)
+    setShowQR(true)
+  }
   return (
     <div className="p-4 md:p-6 flex flex-col gap-6 bg-background min-h-screen">
       <div className="flex gap-2">
@@ -114,8 +123,16 @@ const Dashboard = () => {
               <p className="text-sm text-muted-foreground">
                 Position QR code within the frame
               </p>
+              {showQR && (
+                <div className="mt-4">
+                  <QRCodeSVG value={currentURL} size={128} />
+                  <p className="text-xs mt-2 text-muted-foreground">
+                    Scan to reload this page
+                  </p>
+                </div>
+              )}
             </div>
-            <Button className="mt-4 w-full" variant="default">
+            <Button className="mt-4 w-full" variant="default" onClick={handleGenerateQR}>
               Simulate QR Scan
             </Button>
           </CardContent>
