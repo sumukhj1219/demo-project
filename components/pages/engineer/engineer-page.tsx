@@ -1,7 +1,5 @@
 "use client"
 import { AppSidebar } from "@/components/common/sidebar/app-sidebar"
-import { ChartAreaInteractive } from "@/components/common/sidebar/chart-area-interactive"
-import { DataTable } from "@/components/common/sidebar/data-table"
 import { SectionCards } from "@/components/common/sidebar/section-cards"
 import { SiteHeader } from "@/components/common/sidebar/site-header"
 import {
@@ -9,10 +7,6 @@ import {
     SidebarProvider,
 } from "@/components/ui/sidebar"
 import { managementSidebarData } from "@/config/sidebar/management-sidebar-data"
-
-import data from "../../common/sidebar/data.json"
-import { ManagementChart } from "@/config/charts/management-chart"
-import { ManagementReports } from "../../reports/management-reports"
 import Dashboard from "./engineers-table"
 
 const EngineerPage = () => {
