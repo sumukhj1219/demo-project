@@ -68,7 +68,7 @@ const TicketCard = ({
 }
 
 const Dashboard = () => {
-   const [showQR, setShowQR] = useState(false)
+  const [showQR, setShowQR] = useState(false)
   const [currentURL, setCurrentURL] = useState("")
 
   const handleGenerateQR = () => {
@@ -124,11 +124,15 @@ const Dashboard = () => {
                 Position QR code within the frame
               </p>
               {showQR && (
-                <div className="mt-4">
+                <div className="flex flex-col mx-auto items-center justify-center">
+                  <span className="text-xl mt-1">TAG 1256</span>
                   <QRCodeSVG value={currentURL} size={128} />
                   <p className="text-xs mt-2 text-muted-foreground">
                     Scan to reload this page
                   </p>
+                  <span>رقم العقد: 2024.2023/102</span>
+                  <span>إلى 08/08/2025</span>
+                  <span>تاريخ العقد: من 09/08/2023 </span>
                 </div>
               )}
             </div>
